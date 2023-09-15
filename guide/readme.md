@@ -218,7 +218,7 @@ Each data line also shows the fold difference between the expected number of gen
 
 ## $\textcolor{red}{\textsf{Important note}}$ 
 
-GOstats predicts the number of genes in a dataset that it expects to be linked to a specific GO term and compares this to the actual number in the dataset when testing for enrichment. However, sometimes the expected number may be a value between 0 and 1 and if no genes are found linked to the term the resultant fold change is both miss leadingly large and statistically insignificant. Consequently, in these situations the fold change is set to 1 indicating no difference.  
+GOstats predicts the number of genes in a dataset that it expects to be linked to a specific GO term and compares this to the actual number in the dataset when testing for enrichment. However, sometimes the expected number may be a value between 0 and 1 and if no genes are found linked to the term the resultant fold change is both miss leadingly large and statistically insignificant. 
 
 ### Modifying the GO term display
 The ‘Image display options’ panel (Figure 11) on the primary window contains a number of options that change the way the data is displayed as follows.

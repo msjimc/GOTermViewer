@@ -217,15 +217,18 @@ namespace GOTermViewer
         public bool Hidden
         { get { return hide; } }
 
-        public void Draw(Graphics g, int top, Rectangle[] regions, List<string> samples, double cutOff, int drawThese)
+        public void Draw(Graphics g, int top, Rectangle[] regions, List<string> samples, double cutOff, int drawThese, bool justValues)
         {
-            Pen dots = new Pen(Color.Black, 0.5f);
-            float[] dashes = { 1, 15 };
-            dots.DashPattern = dashes;
-
-            for (int index = 0; index < regions.Length; index++)
+            if (justValues == false)
             {
-                g.DrawLine(dots, regions[index].Left, top + 10, regions[index].Right, top + 10);
+                Pen dots = new Pen(Color.Black, 0.5f);
+                float[] dashes = { 1, 15 };
+                dots.DashPattern = dashes;
+
+                for (int index = 0; index < regions.Length; index++)
+                {
+                    g.DrawLine(dots, regions[index].Left, top + 10, regions[index].Right, top + 10);
+                }
             }
 
             for (int index = 0; index < samples.Count; index++)
@@ -233,7 +236,7 @@ namespace GOTermViewer
                 if (values.ContainsKey(samples[index]) == true)
                 {
                     termData td = values[samples[index]];
-                    td.DrawData(g, regions[index], top, cutOff, drawThese);
+                    td.DrawData(g, regions[index], top, cutOff, drawThese, justValues);
                 }
             }
         }

@@ -82,5 +82,9 @@ namespace GOTermViewer
             timer1.Start();
         }
 
+        private void p1_Click(object sender, EventArgs e)
+        {
+            source.ShowFoldChangeValues();
+        }
     }
 }

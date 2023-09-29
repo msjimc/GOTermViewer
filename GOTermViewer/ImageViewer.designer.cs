@@ -76,6 +76,7 @@ namespace GOTermViewer
             this.p1.Size = new System.Drawing.Size(1012, 482);
             this.p1.TabIndex = 1;
             this.p1.TabStop = false;
+            this.p1.Click += new System.EventHandler(this.p1_Click);
             // 
             // btnQuit
             // 

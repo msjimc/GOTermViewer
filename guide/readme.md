@@ -125,7 +125,7 @@ Unlike the first command, these don’t require any modification except the text
 | 3 | GO:0035458 | 3.81E-25 | 51.29674 | 1.049442 | 22 | 39 | cellular response to interferon-beta |
 | 4 | GO:0071310 | 3.81E-17 | 3.84663 | 25.42141 | 72 | 954 | cellular response to organic substance |
 
-## $\textcolor{red}{\textsf{Important note}}$ 
+$\textcolor{red}{\textsf{Important note}}$ 
 
 To include terms that are either over- or under- represented in the DEG dataset, the enrichment step needs to be run twice, once with:
 
@@ -216,7 +216,7 @@ Figure 10
 Figure 10 shows the enrichment data for 6 GO terms in 4 linked analyses. Of these terms all contain data except for the ‘B cell differentiation’ and ‘mature B cell differentiation involved in immune response’ terms. If more genes are linked to a GO term than expected the triangle points upwards, while if there are fewer the triangle points down. Similarly, if the difference between the expected number and observed number is statistically significant the triangle is drawn in green, while non-significant terms are drawn in pink. The p value cutoff can be adjusted via the ‘Significance cutoff’ option in the ‘Filter data’ panel (see section: Filtering the data based on its p value). The horizontal location of the triangle is determined by the value of the data’s odds ratio, with the x - axis scale ranging from a value of 0 to 25 (see Changing the x-axis scale). If an odds ratio value is greater than 25 it is placed as if its value was 25.  
 Each data line also shows the fold difference between the expected number of genes linked to a term and the observed number. The scale ranges from 1/10th the expect number to 10 x the number. The centre point (no difference) is marked by a vertical line (black if the difference is significant, grey if it isn’t), while the fold difference is shown by a 2nd vertical line (red if the difference is significant, pink if it isn’t) either to the left of the centre (few genes linked to the term than expected) or to the right (more genes linked to the term than expected).
 
-## $\textcolor{red}{\textsf{Important note}}$ 
+$\textcolor{red}{\textsf{Important note}}$ 
 
 GOstats predicts the number of genes in a dataset that it expects to be linked to a specific GO term and compares this to the actual number in the dataset when testing for enrichment. However, sometimes the expected number may be a value between 0 and 1 and if no genes are found linked to the term the resultant fold change is both miss leadingly large and statistically insignificant. 
 

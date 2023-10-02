@@ -418,10 +418,19 @@ Figure 27b
 
 Figure 27c
 
-## Saving the analysis to an image file
-Once all the required GO terms have been selected, it’s possible to save the display image to file by pressing the ‘Save’ button in the ‘Save image’ panel (Figure 28). This will copy the image format of the image in the display window with the exception that the width of each of the rectangles is set via the ‘Graph width’ option of the ‘save image’ panel. Typically, the value of this option matches the width of the rectangles in the display unless it is less than 50 or greater than 1000. To modify this value simply select the current value and then type the new value. If size of the 'Gene Ontology phrase data' window is changed or the 'Change width of label area' value is modified, changes to the ‘Graph width’ option will be overwritten. 
+## Viewing the underlying data
 
-![figure 28](images/fig22.png?raw=true "Figure 28")
+While GOTermViewer displays an accurate representation of the data exported by GOstat, it is important to realise that this can be misleading. For instance in dataset with few differentially expressed genes the expected number of genes linked to a GO term may be very small (i.e. 0.25), in which case a data set may be expected to have either 0 or 1 gene linked to the term, but the folder change values will be either < 1/10th or 4, both of which would imply a significant change, however the p value will suggest the change is not significant. Consequently, to aid the understanding of the data it’s possible to view the data values by clicking on the image (Figure 28). The displayed data consists of values labelled OR, p, O and E which represent the odds ratio (OR), p value (p), observed number of genes linked to a term (O) and the expected number of genes (E). This information is designed to give you an idea of the underlying data and if necessary you should look in the files exported by GOstat. To aid the data presentation, these values are truncated to 2 decimal places for the odds ratio and p vale, and 1 decimal place for the expected number of genes and not rounded up so a value of 0.049 will be displayed as the a truncated 0.04 and not rounded up value of 0.04.
+To return to the image click on the image for a second time. If the image is saved with the numeric values are shown, the exported image will contain the values and not the graphic.  
+  
+![figure 28](images/fig22c.jpg?raw=true "Figure 28")
+
+Figure 28
+
+## Saving the analysis to an image file
+Once all the required GO terms have been selected, it’s possible to save the display image to file by pressing the ‘Save’ button in the ‘Save image’ panel (Figure 29). This will copy the image format of the image in the display window with the exception that the width of each of the rectangles is set via the ‘Graph width’ option of the ‘save image’ panel. Typically, the value of this option matches the width of the rectangles in the display unless it is less than 50 or greater than 1000. To modify this value simply select the current value and then type the new value. If size of the 'Gene Ontology phrase data' window is changed or the 'Change width of label area' value is modified, changes to the ‘Graph width’ option will be overwritten. 
+
+![figure 29](images/fig22.png?raw=true "Figure 29")
 
 Figure 28
 

@@ -112,10 +112,25 @@ namespace GOTermViewer
             }
             else
             {
-                if (oddsRatio > 99)
-                { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                SizeF length = g.MeasureString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10));
+                if (length.Width < region.Width)
+                {
+              g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
+                      if (oddsRatio > 99)
+                    { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                    else
+                    { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                }
                 else
-                { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y ); }
+                {
+                    length = g.MeasureString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7));
+                    g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
+
+                    if (oddsRatio > 99)
+                    { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7), Brushes.Black, region.X + 1, Y); }
+                    else
+                    { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7), Brushes.Black, region.X + 1, Y); }
+                }
             }
         }
 
@@ -199,10 +214,25 @@ namespace GOTermViewer
             }
             else
             {
-                if (oddsRatio > 99)
-                { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                SizeF length = g.MeasureString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10));
+                if (length.Width < region.Width)
+                {
+                    g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
+                    if (oddsRatio > 99)
+                    { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                    else
+                    { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                }
                 else
-                { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
+                {
+                    length = g.MeasureString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7));
+                    g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
+
+                    if (oddsRatio > 99)
+                    { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7), Brushes.Black, region.X + 1, Y); }
+                    else
+                    { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 7), Brushes.Black, region.X + 1, Y); }
+                }
             }
         }  
 

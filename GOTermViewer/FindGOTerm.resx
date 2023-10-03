@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>To find a GO term start typing in the text area below and GO terms containing the text will appear in the drop down list below the text area. When the term you want appears in the list select it and it and its parent terms will appear in the large text area below the drop down list. Pressing 'OK' will cause the selected term to be shown in the GO term tree viewer on the main form.</value>
+  </data>
   <metadata name="tFilter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

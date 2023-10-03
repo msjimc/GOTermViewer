@@ -75,7 +75,7 @@ namespace GOTermViewer
             this.cblAnswers.HorizontalScrollbar = true;
             this.cblAnswers.Location = new System.Drawing.Point(6, 143);
             this.cblAnswers.Name = "cblAnswers";
-            this.cblAnswers.Size = new System.Drawing.Size(877, 349);
+            this.cblAnswers.Size = new System.Drawing.Size(877, 334);
             this.cblAnswers.TabIndex = 8;
             this.cblAnswers.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.cblAnswers_ItemCheck);
             // 
@@ -149,6 +149,7 @@ namespace GOTermViewer
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(877, 43);
             this.label1.TabIndex = 1;
+            this.label1.Text = resources.GetString("label1.Text");
             // 
             // btnCancel
             // 
@@ -187,7 +188,7 @@ namespace GOTermViewer
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(632, 554);
+            this.MinimumSize = new System.Drawing.Size(627, 539);
             this.Name = "BestCommonPath";
             this.Text = "Best coomon path";
             this.Load += new System.EventHandler(this.BestCommonPath_Load);

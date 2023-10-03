@@ -891,7 +891,7 @@ namespace GOTermViewer
                 g.FillRectangle(Brushes.White, r.Right, 0, iv.P1.Width - r.Right, r.Top);
                 if (index == 0)
                 {
-                    g.DrawString("Fold change between expect and actual count:", font, Brushes.Black, r.X - 325, r.Bottom - 3);
+                    g.DrawString("Fold change between expected and actual count:", font, Brushes.Black, r.X - 325, r.Bottom - 3);
                 }
 
                 float gap = r.Width / 2.0f;
@@ -936,7 +936,7 @@ namespace GOTermViewer
 
                 if (index == 0)
                 {
-                    g.DrawString("Fold change between expect and actual count:", font, Brushes.Black, r.X - 305, bottom);
+                    g.DrawString("Fold change between expected and actual count:", font, Brushes.Black, r.X - 305, bottom);
                 }
 
                 float gap = r.Width / 2.0f;

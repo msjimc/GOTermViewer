@@ -23,7 +23,6 @@ namespace GOTermViewer
         private bool nodeSelected = false;
         private bool childSelected = false;
         private int significantHits = 0;
-        //private int geneCount = 0;
         private bool passedFilterIntree = false;
         private bool passedFilter = false;
         private bool hide = false;

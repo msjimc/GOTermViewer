@@ -389,17 +389,17 @@ The ‘Filter data’ panel contains two functions (Figure 21a):
 
 #### Change the p value cutoff
 
-The first changes the p value ‘Significance cutoff’ that changes the cut-off point at which a GO Term’s enrichment is deemed significant, this change is reflected in the display (Figure 26a and Figure 26c). This value can be any decimal number between 0 and 1, if an invalid value is entered it will be reset to 0.05.
+The first changes the p value ‘Significance cutoff’ (Figure 26a) that changes the cut-off point at which a GO Term’s enrichment is deemed significant, this change is reflected in the display (Figure 26b and Figure 26c pvalue 0.05 to 0.01). This value can be any decimal number between 0 and 1, if an invalid value is entered it will be reset to 0.05.
 
-![figure 26a](images/fig21.png?raw=true "Figure 26a")
+![figure 26a](images/figure21.jpg?raw=true "Figure 26a")
 
 Figure 26a
 
-![figure 26b](images/fig21a.jpg?raw=true "Figure 26b")
+![figure 26b](images/figure21a.jpg?raw=true "Figure 26b")
 
 Figure 26b
 
-![figure 26c](images/fig21b.jpg?raw=true "Figure 26c")
+![figure 26c](images/figure21b.jpg?raw=true "Figure 26c")
 
 Figure 26c
 

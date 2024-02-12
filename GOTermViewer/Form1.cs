@@ -22,7 +22,6 @@ namespace GOTermViewer
         private term root_molecular_function;
         private term root_biological_process;
         private term root_cellular_component;
-        //private term root_selectedData;
         private TreeNode tn_molecular_function;
         private TreeNode tn_biological_process;
         private TreeNode tn_cellular_component;
@@ -71,7 +70,6 @@ namespace GOTermViewer
             biological_process = null;
             root_biological_process = null;
             selectedData = null;
-            //root_selectedData = null;
             tn_selectedNode = null;
 
             gbDisplayOption.Enabled = false;
@@ -99,7 +97,7 @@ namespace GOTermViewer
             {
                 fs = new System.IO.StreamReader(GO_oboFile);
                 terms = new List<term>();
-
+                int numberOfRelationships = 0;
                 string line = "";
                 Dictionary<string, string> data = new Dictionary<string, string>();
                 List<string> relaionships = new List<string>();
@@ -145,6 +143,8 @@ namespace GOTermViewer
                     {
                         if (data.Count > 0)
                         {
+                            numberOfRelationships += relaionships.Count; ;
+                            
                             term currentTerm = new term(data, relaionships);
                             if (currentTerm != null)
                             { terms.Add(currentTerm); }
@@ -154,16 +154,15 @@ namespace GOTermViewer
                     }
                 }
 
-                Text = "Added " + terms.Count.ToString("N0") + ", now forming tree";
+                Text = "Added " + terms.Count.ToString("N0") + " with " + numberOfRelationships.ToString("N0") + " relationships, now forming tree";
 
 
                 term_sorter ts = new term_sorter();
                 terms.Sort(ts);
 
                 PutInSpace(terms);
-                LinkTogether();
+                LinkTogether();                          
                 terms = null;
-
                 AddTermsToNodes();
 
                 btnDataFolder.Enabled = true;
@@ -225,8 +224,7 @@ namespace GOTermViewer
                 }
             }
 
-            //tv.Sort();
-        }
+         }
 
         private void PutInSpace(List<term> terms)
         {
@@ -258,7 +256,6 @@ namespace GOTermViewer
         {
             foreach (term t in biological_process.Values)
             {
-                string id = t.ID;
                 foreach (string lk in t.Relationships)
                 {
                     string key = GetTerm(lk);
@@ -272,7 +269,6 @@ namespace GOTermViewer
             }
             foreach (term t in cellular_component.Values)
             {
-                string id = t.ID;
                 foreach (string lk in t.Relationships)
                 {
                     string key = GetTerm(lk);
@@ -285,8 +281,7 @@ namespace GOTermViewer
                 }
             }
             foreach (term t in molecular_function.Values)
-            {
-                string id = t.ID;
+            {                
                 foreach (string lk in t.Relationships)
                 {
                     string key = GetTerm(lk);

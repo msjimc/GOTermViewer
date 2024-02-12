@@ -35,7 +35,7 @@ namespace GOTermViewer
 
             names.Sort();
         }
-
+ 
         private void FindGOTerm_Load(object sender, EventArgs e)
         {
 

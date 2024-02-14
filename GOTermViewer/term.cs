@@ -101,7 +101,6 @@ namespace GOTermViewer
 
         }
 
-
         private string getTerm(string line)
         {
             string answer = "";
@@ -300,7 +299,5 @@ namespace GOTermViewer
             return name;
         }
 
-
-        //public int getGeneCount { get { return geneCount; } }
     }
 }

@@ -169,7 +169,6 @@ namespace GOTermViewer
 
             float obs = exp - (foldeChangeScale * foldChange);
             if (float.IsNaN(obs) == true) { obs = 1; }
-            //if (expCount < 1) { obs = exp -1; }
 
             if (justValues == false)
             {
@@ -198,18 +197,17 @@ namespace GOTermViewer
                         Point[] triangle = { new Point(down[0].X + (int)place, down[0].Y + Y + 2), new Point(down[1].X + (int)place, down[1].Y + Y + 2), new Point(down[2].X + (int)place, down[2].Y + Y + 2) };
                         g.FillPolygon(Brushes.Pink, triangle);
                     }
-                }
 
-                if (drawThese != 2)
-                {
-                    Pen pGray = new Pen(Color.Gray, 2);
-                    Pen pPink = new Pen(Color.Pink, 2);
-                    Pen pPalePink = new Pen(Color.LightPink, 2);
+                    if (drawThese != 2)
+                    {
+                        Pen pGray = new Pen(Color.Gray, 2);
+                        Pen pPink = new Pen(Color.Pink, 2);
+                        Pen pPalePink = new Pen(Color.LightPink, 2);
 
-                    g.DrawLine(pGray, region.X + exp, Y, region.X + exp, Y + 16 + 4);
-                    g.DrawLine(pPink, region.X + obs, Y, region.X + obs, Y + 16 + 4);
-                    g.DrawLine(Pens.Gray, region.X + obs, Y + 8 + 2, region.X + exp, Y + 8 + 2);
-
+                        g.DrawLine(pGray, region.X + exp, Y, region.X + exp, Y + 16 + 4);
+                        g.DrawLine(pPink, region.X + obs, Y, region.X + obs, Y + 16 + 4);
+                        g.DrawLine(Pens.Gray, region.X + obs, Y + 8 + 2, region.X + exp, Y + 8 + 2);
+                    }
                 }
             }
             else

@@ -3,6 +3,7 @@
 - [Introduction](#Introduction)
 - [Guide](guide)
 - [Download](program)
+- [Running on Linux and masOS](#running-on-linux-and-masos) 
 
 ## Introduction
 
@@ -25,3 +26,9 @@ The GOTermVeiwer guide is [here:](guide)
 ## Download
 
 The compiled can be downloaded from [here:](program)
+
+## Running on Linux and masOS
+
+While GOTermVeiwer is targeted to run on Windows computers it is possible to run it on a range of Linux, BSD and Apple computers using Wine as described here:
+
+* [Running Windows programs on Linux or masOS](https://github.com/msjimc/RunningWindowsProgramsOnLinux).

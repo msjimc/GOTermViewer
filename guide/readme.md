@@ -443,4 +443,8 @@ It is possible to save all the selected GO terms as a series of paths to file by
 
 ## Running GOTermViewer on macOS and Linux
 
-While GOTermViewer is a Windows application it can be run on arrange of operating systems using Wine (Figure 29). For most operating systems Wine can be installed via a package manager as described on Wine's [web site](https://www.winehq.org) and in this [GitHub repository](https://github.com/msjimc/RunningWindowsProgramsOnLinux). 
+While GOTermViewer is a Windows application, when used with Wine it will work on a range of operating systems (Figure 29). For most operating systems Wine can be installed via a package manager as described on Wine's [web site](https://www.winehq.org) and in this [GitHub repository](https://github.com/msjimc/RunningWindowsProgramsOnLinux). 
+
+![Figure 30](images/figure30.jpg)
+
+Figure 1: GOTermViewer running on Ubuntu (24.4) with Wine 9.0

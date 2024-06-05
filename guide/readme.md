@@ -29,7 +29,9 @@
       - [Change the p value cutoff](#change-the-p-value-cutoff)
       - [Filter terms by p value of specified files](#filter-terms-by-p-value-of-specified-files)
   * [Saving the analysis to an image file](#saving-the-analysis-to-an-image-file)
-  * [Exporting and importing selected GO terms](#exporting-and-importing-selected-go-terms)
+  * [Exporting and importing selected GO terms]
+  * [Running GOTermViewer on macOS and Linux](#running-gotermviewer-on-macos-and-linux)
+  (#exporting-and-importing-selected-go-terms)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -438,3 +440,7 @@ While the size of the image is not constrained by the size of the program's inte
 
 ## Exporting and importing selected GO terms 
 It is possible to save all the selected GO terms as a series of paths to file by pressing the ‘Export’ button on the ‘Input options’ panel. This list can then be imported using the ‘Import’ button on the ‘Input options’ panel allowing an analysis to be resumed at a later date. However, due to the differences in the underlying list of DEGs, the GO terms may differ noticeably between different sets of differential expression experimental data sets. Consequently, it may be unwise use the same GO term list between different sets of expression data. 
+
+## Running GOTermViewer on macOS and Linux
+
+While GOTermViewer is a Windows application it can be run on arrange of operating systems using Wine (Figure 29). For most operating systems Wine can be installed via a package manager as described on Wine's [web site](https://www.winehq.org) and in this [GitHub repository](https://github.com/msjimc/RunningWindowsProgramsOnLinux). 

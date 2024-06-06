@@ -49,7 +49,7 @@ namespace GOTermViewer
             this.groupBox1.Controls.Add(this.p1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1041, 507);
+            this.groupBox1.Size = new System.Drawing.Size(772, 459);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Go term enrichment";
@@ -59,9 +59,9 @@ namespace GOTermViewer
             this.vsbP1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.vsbP1.LargeChange = 50;
-            this.vsbP1.Location = new System.Drawing.Point(1021, 19);
+            this.vsbP1.Location = new System.Drawing.Point(752, 19);
             this.vsbP1.Name = "vsbP1";
-            this.vsbP1.Size = new System.Drawing.Size(17, 482);
+            this.vsbP1.Size = new System.Drawing.Size(17, 434);
             this.vsbP1.SmallChange = 25;
             this.vsbP1.TabIndex = 2;
             this.vsbP1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.vsbP1_Scroll);
@@ -73,7 +73,7 @@ namespace GOTermViewer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.p1.Location = new System.Drawing.Point(6, 19);
             this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(1012, 482);
+            this.p1.Size = new System.Drawing.Size(743, 434);
             this.p1.TabIndex = 1;
             this.p1.TabStop = false;
             this.p1.Click += new System.EventHandler(this.p1_Click);
@@ -81,7 +81,7 @@ namespace GOTermViewer
             // btnQuit
             // 
             this.btnQuit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnQuit.Location = new System.Drawing.Point(18, 519);
+            this.btnQuit.Location = new System.Drawing.Point(18, 471);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(75, 23);
             this.btnQuit.TabIndex = 3;
@@ -97,7 +97,7 @@ namespace GOTermViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 548);
+            this.ClientSize = new System.Drawing.Size(796, 500);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

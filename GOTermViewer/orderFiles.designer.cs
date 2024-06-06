@@ -181,6 +181,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(550, 305);
             this.Name = "orderFiles";
             this.Text = "Set order files are displayed";
             this.Load += new System.EventHandler(this.orderFiles_Load);

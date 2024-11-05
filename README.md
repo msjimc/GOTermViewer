@@ -4,6 +4,7 @@
 - [Guide](guide)
 - [Download](program)
 - [Running on Linux and masOS](#running-on-linux-and-masos) 
+- [Citation](#citation)
 
 ## Introduction
 
@@ -32,3 +33,8 @@ The compiled can be downloaded from [here:](program)
 While GOTermVeiwer is targeted to run on Windows computers it is possible to run it on a range of Linux, BSD and Apple computers using Wine as described here:
 
 * [Running Windows programs on Linux or masOS](https://github.com/msjimc/RunningWindowsProgramsOnLinux).
+
+## Citation
+
+> [Volpato M, Hull M, Carr IM. GOTermViewer: Visualization of Gene Ontology Enrichment in Multiple Differential Gene Expression Analyses. Bioinform Biol Insights. 2024 Sep 18;18](https://pmc.ncbi.nlm.nih.gov/articles/PMC11418229/)
+

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -738,7 +739,7 @@ namespace GOTermViewer
             { txtSignificant.Text = "0.05"; }
         }
 
-        private Bitmap SortDrawingsArea(Size dimensions, int labelWidth, Dictionary<String, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool drawAll, bool addStar, bool showDegAxis, bool bothAxis, bool justValues)
+        private Bitmap SortDrawingsArea(Size dimensions, int labelWidth, Dictionary<String, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool drawAll, bool addStar, bool showDegAxis, bool bothAxis, bool justValues, StringBuilder sb)
         {
             lines = new List<Point[]>();
 
@@ -788,7 +789,7 @@ namespace GOTermViewer
             else
             { drawThese = 3; }
 
-            DrawDataScreen(g, cutOff, terms, font, Yoffset, drawFiltered, endent, drawAll, lines, addStar, drawThese, justValues);
+            DrawDataScreen(g, cutOff, terms, font, Yoffset, drawFiltered, endent, drawAll, lines, addStar, drawThese, justValues, sb);
 
             g.FillRectangle(Brushes.White, 0, 0, labelWidth, regions[0].Top);
             g.DrawString("Gene Ontology terms", font, Brushes.Black, 5, 3);
@@ -960,11 +961,11 @@ namespace GOTermViewer
             }
         }
 
-        private void DrawDataScreen(Graphics g, double cutOff, Dictionary<string, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool drawAll, List<Point[]> lines, bool addStar, int drawThese, bool justValues)
+        private void DrawDataScreen(Graphics g, double cutOff, Dictionary<string, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool drawAll, List<Point[]> lines, bool addStar, int drawThese, bool justValues, StringBuilder sb)
         {
             int y = 31;
             List<string> used = new List<string>();
-            y = drawTermNode(g, tn_selectedNode, y, cutOff, 0, y, 0, terms, font, Yoffset, drawFiltered, endent, drawAll, lines, new Point(0, 0), chkNames.Checked, used, addStar, drawThese, justValues);
+            y = drawTermNode(g, tn_selectedNode, y, cutOff, 0, y, 0, terms, font, Yoffset, drawFiltered, endent, drawAll, lines, new Point(0, 0), chkNames.Checked, used, addStar, drawThese, justValues, sb);
 
             if (chkEndent.Checked == true)
             {
@@ -989,7 +990,7 @@ namespace GOTermViewer
             }
         }
 
-        private int drawTermNode(Graphics g, TreeNode thisNode, int y, double cutOff, int level, int parentY, int parentX, Dictionary<string, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool dontDrawAll, List<Point[]> lines, Point lastPoint, bool checkNames, List<string> names, bool addStar, int drawThese, bool justValues)
+        private int drawTermNode(Graphics g, TreeNode thisNode, int y, double cutOff, int level, int parentY, int parentX, Dictionary<string, term> terms, Font font, int Yoffset, bool drawFiltered, bool endent, bool dontDrawAll, List<Point[]> lines, Point lastPoint, bool checkNames, List<string> names, bool addStar, int drawThese, bool justValues, StringBuilder sb)
         {
             if (thisNode == null) { return -1; }
             if (endent == false) { level = 0; }
@@ -1018,6 +1019,9 @@ namespace GOTermViewer
 
                     if (thisTerm.getDataCount > 0 && thisNode.Checked == true && thisTerm.Hidden == false)
                     {
+                        if (sb != null)
+                        { sb.Append("\r\n" + thisTerm.Name); }
+
                         SizeF length = g.MeasureString(thisTerm.Name + star, font);
                         if ((int)length.Width + (level * 10) + 3 > labelWidth)
                         {
@@ -1033,12 +1037,15 @@ namespace GOTermViewer
                         names.Add(thisTerm.ID);
 
                         if (drawFiltered == true && thisTerm.HasFilteredData == true)
-                        { thisTerm.Draw(g, yDraw, regions, samples, cutOff, drawThese, justValues); }
+                        { thisTerm.Draw(g, yDraw, regions, samples, cutOff, drawThese, justValues, sb); }
                         else if (drawFiltered == false)
-                        { thisTerm.Draw(g, yDraw, regions, samples, cutOff, drawThese, justValues); }
+                        { thisTerm.Draw(g, yDraw, regions, samples, cutOff, drawThese, justValues, sb); }
                     }
                     else if (dontDrawAll == false && thisTerm.Hidden == false)
                     {
+                        if (sb != null)
+                        { sb.Append("\r\n" + thisTerm.Name); }
+
                         SizeF length = g.MeasureString(thisTerm.Name, font);
                         if ((int)length.Width + (level * 10) + 3 > labelWidth)
                         {
@@ -1099,7 +1106,7 @@ namespace GOTermViewer
                             {
                                 term t = selectedData[key];
                                 if (t.HasDataInTree == true)
-                                { y = drawTermNode(g, n, y, cutOff, level, myY, myX, terms, font, Yoffset, drawFiltered, endent, dontDrawAll, lines, these[0], checkNames, names, chkHighlightData.Checked, drawThese, justValues); }
+                                { y = drawTermNode(g, n, y, cutOff, level, myY, myX, terms, font, Yoffset, drawFiltered, endent, dontDrawAll, lines, these[0], checkNames, names, chkHighlightData.Checked, drawThese, justValues, sb); }
                             }
                         }
                     }
@@ -1115,7 +1122,7 @@ namespace GOTermViewer
                             {
                                 term t = selectedData[key];
                                 if (t.HasFilteredDataInTree == true)
-                                { y = drawTermNode(g, n, y, cutOff, level, myY, myX, terms, font, Yoffset, drawFiltered, endent, dontDrawAll, lines, these[0], checkNames, names, chkHighlightData.Checked, drawThese, justValues); }
+                                { y = drawTermNode(g, n, y, cutOff, level, myY, myX, terms, font, Yoffset, drawFiltered, endent, dontDrawAll, lines, these[0], checkNames, names, chkHighlightData.Checked, drawThese, justValues, sb); }
                             }
                         }
                     }
@@ -1262,7 +1269,7 @@ namespace GOTermViewer
                     if (topOffP1Image < 0) { topOffP1Image = 0; }
                 }
 
-                iv.P1.Image = SortDrawingsArea(iv.P1.Size, labelWidth, selectedData, f, topOffP1Image, drawFiltered, chkEndent.Checked, chkJustLabelsWithData.Checked, chkHighlightData.Checked, chkDEG.Checked, false, justValues);
+                iv.P1.Image = SortDrawingsArea(iv.P1.Size, labelWidth, selectedData, f, topOffP1Image, drawFiltered, chkEndent.Checked, chkJustLabelsWithData.Checked, chkHighlightData.Checked, chkDEG.Checked, false, justValues, null);
             }
         }
         private void button5_Click(object sender, EventArgs e)
@@ -1272,11 +1279,31 @@ namespace GOTermViewer
             int realTop = topOffP1Image;
             try
             {
+                StringBuilder sb = new StringBuilder();
+                foreach (string name in samples)
+                { sb.Append("\t" + name+ "\t\t\t"); }
+                sb.Append("\r\n");
+                foreach (string name in samples)
+                { sb.Append("\tOdds ratio\tp value\tObserved\tExpected"); }
+
                 topOffP1Image = 0;
                 Font f = new Font(FontFamily.GenericSerif, 12);
                 Size area = getImageSize(numberOfSamples, labelWidth, f);
                 area.Height += 30;
-                SortDrawingsArea(area, labelWidth, selectedData, f, 0, drawFilteredData, chkEndent.Checked, chkJustLabelsWithData.Checked, chkHighlightData.Checked, chkDEG.Checked, true, justValues).Save(saveToo);
+                SortDrawingsArea(area, labelWidth, selectedData, f, 0, drawFilteredData, chkEndent.Checked, chkJustLabelsWithData.Checked, chkHighlightData.Checked, chkDEG.Checked, true, justValues,sb).Save(saveToo);
+
+                string textname = saveToo.Substring(0, saveToo.Length - 3) + "xls";
+                System.IO.StreamWriter fw = null;
+                try
+                {
+                    
+
+                    fw = new System.IO.StreamWriter(textname);
+                    fw.WriteLine(sb.ToString());
+                }
+                catch (Exception ex) { }
+                finally { fw?.Close(); }
+            
             }
             finally
             { topOffP1Image = realTop; }

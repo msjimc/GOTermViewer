@@ -215,7 +215,7 @@ namespace GOTermViewer
         public bool Hidden
         { get { return hide; } }
 
-        public void Draw(Graphics g, int top, Rectangle[] regions, List<string> samples, double cutOff, int drawThese, bool justValues)
+        public void Draw(Graphics g, int top, Rectangle[] regions, List<string> samples, double cutOff, int drawThese, bool justValues, StringBuilder sb)
         {
             if (justValues == false)
             {
@@ -234,7 +234,7 @@ namespace GOTermViewer
                 if (values.ContainsKey(samples[index]) == true)
                 {
                     termData td = values[samples[index]];
-                    td.DrawData(g, regions[index], top, cutOff, drawThese, justValues);
+                    td.DrawData(g, regions[index], top, cutOff, drawThese, justValues, sb);
                 }
             }
         }

@@ -46,15 +46,15 @@ namespace GOTermViewer
             }
         }
 
-        public void DrawData(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues)
+        public void DrawData(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues, StringBuilder sb)
         {
             if (expCount < count)
-            { DrawDataOver(g, region, Y, cutOff, drawThese, justValues); }
+            { DrawDataOver(g, region, Y, cutOff, drawThese, justValues,sb); }
             else
-            { DrawDataUnder(g, region, Y, cutOff, drawThese, justValues); }
+            { DrawDataUnder(g, region, Y, cutOff, drawThese, justValues,sb); }
         }
 
-        public void DrawDataOver(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues)
+        public void DrawDataOver(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues, StringBuilder sb)
         {           
             float place;
             float oddsScale = (float)(region.Width - 16) / 25;
@@ -70,6 +70,14 @@ namespace GOTermViewer
             if (foldChange > 9) { foldChange = 9; }
             float obs = exp + (foldeChangeScale * foldChange);
             if (float.IsNaN(obs) == true) { obs = 1; }
+
+            if (sb != null)
+            {
+                if (oddsRatio > 99)
+                { sb.Append("\t" + ">99" + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#")); }
+                else
+                { sb.Append("\t" + oddsRatio.ToString("0.##") + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#")); }
+            }
 
             if (justValues == false)
             {
@@ -115,8 +123,8 @@ namespace GOTermViewer
                 SizeF length = g.MeasureString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10));
                 if (length.Width < region.Width)
                 {
-              g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
-                      if (oddsRatio > 99)
+                    g.FillRectangle(Brushes.White, region.X + 2, Y, length.Width, 15);
+                    if (oddsRatio > 99)
                     { g.DrawString("OR >99, p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
                     else
                     { g.DrawString("OR " + oddsRatio.ToString("0.##") + ", p " + pValue.ToString("0.##") + ", O " + count.ToString() + ", E " + expCount.ToString("0.#"), new Font(FontFamily.GenericSerif, 10), Brushes.Black, region.X + 1, Y); }
@@ -134,7 +142,7 @@ namespace GOTermViewer
             }
         }
 
-        public void DrawDataUnder(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues)
+        public void DrawDataUnder(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues, StringBuilder sb)
         {
             Brush b;
 
@@ -169,6 +177,14 @@ namespace GOTermViewer
 
             float obs = exp - (foldeChangeScale * foldChange);
             if (float.IsNaN(obs) == true) { obs = 1; }
+
+            if (sb != null)
+            {
+                if (oddsRatio > 99)
+                { sb.Append("\t" + ">99" + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#")); }
+                else
+                { sb.Append("\t" + oddsRatio.ToString("0.##") + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#")); }
+            }
 
             if (justValues == false)
             {

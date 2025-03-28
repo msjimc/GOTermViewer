@@ -236,6 +236,8 @@ namespace GOTermViewer
                     termData td = values[samples[index]];
                     td.DrawData(g, regions[index], top, cutOff, drawThese, justValues, sb);
                 }
+                else if (sb != null)
+                { sb.Append("\t-\t-\t-\t-"); }
             }
         }
 

@@ -429,8 +429,22 @@ To return to the image click on the image for a second time. If the image is sav
 
 Figure 28
 
-## Saving the analysis to an image file
-Once all the required GO terms have been selected, it’s possible to save the display image to file by pressing the ‘Save’ button in the ‘Save image’ panel (Figure 29). This will copy the image format of the image in the display window with the exception that the width of each of the rectangles is set via the ‘Graph width’ option of the ‘save image’ panel. Typically, the value of this option matches the width of the rectangles in the display unless it is less than 50 or greater than 1000. To modify this value simply select the current value and then type the new value. If size of the 'Gene Ontology phrase data' window is changed or the 'Change width of label area' value is modified, changes to the ‘Graph width’ option will be overwritten. 
+## Saving the analysis
+
+Once all the required GO terms have been selected, it’s possible to save the display image to file and the underlying data by pressing the ‘Save’ button in the ‘Save image’ panel (Figure 29). This will ask for the name of an image file (*.png) to be entered. This file name will be used for the image's file name, while the same name, but with the extension change to *.xls will be used to sane the numeric data. 
+### Numeric data
+
+The numeric data will be saved to tab-delimited text file with the *.xls file extension. This file is best viewed in the a spread sheet application such as Excel. The enrichment analysis and GO term data is arranged in the same order as it is drawn in the image. Data for each enrichment is split in to four columns as drcribed below:
+
+- Column 1: Odds ratio value (if its greater then 99, it is displayed as >99). 
+- Column 2: The enrichments p-value.
+- Column 3: The observed number of genes linked to the GO term.
+- Column 4: The expected number of genes linked to the GO term.
+
+If data is missing for a GO term in a data file the values are set to "-".
+
+### Image
+This will save the image in the display window except that the width of each of the rectangles is set via the ‘Graph width’ option of the ‘save image’ panel, rather than as a function of the display panel width. Typically, the value of this option matches the width of the rectangles in the display unless it is less than 50 or greater than 1000. To modify this value simply select the current value and then type the new value. If size of the 'Gene Ontology phrase data' window is changed or the 'Change width of label area' value is modified, changes to the ‘Graph width’ option will be overwritten. 
 
 ![figure 29](images/fig22.png?raw=true "Figure 29")
 

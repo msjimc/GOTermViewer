@@ -54,6 +54,14 @@ namespace GOTermViewer
             { DrawDataUnder(g, region, Y, cutOff, drawThese, justValues,sb); }
         }
 
+        public string data()
+        {
+            if (oddsRatio > 99)
+            { return "\t" + ">99" + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#"); }
+            else
+            { return "\t" + oddsRatio.ToString("0.##") + "\t" + pValue.ToString("0.##") + "\t" + count.ToString() + "\t" + expCount.ToString("0.#"); }
+        }
+
         public void DrawDataOver(Graphics g, Rectangle region, int Y, double cutOff, int drawThese, bool justValues, StringBuilder sb)
         {           
             float place;

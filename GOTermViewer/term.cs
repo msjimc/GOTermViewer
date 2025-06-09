@@ -231,7 +231,7 @@ namespace GOTermViewer
 
             for (int index = 0; index < samples.Count; index++)
             {
-                if (values.ContainsKey(samples[index]) == true)
+               if (values.ContainsKey(samples[index]) == true)
                 {
                     termData td = values[samples[index]];
                     td.DrawData(g, regions[index], top, cutOff, drawThese, justValues, sb);
@@ -239,6 +239,28 @@ namespace GOTermViewer
                 else if (sb != null)
                 { sb.Append("\t-\t-\t-\t-"); }
             }
+        }
+
+        public string GetDat(List<string> samples)
+        {
+            if (name== "Biological regulation")
+            {; }
+            bool gotdata = false;
+            string line = "";
+            for (int index = 0; index < samples.Count; index++)
+            {               
+                if (values.ContainsKey(samples[index]) == true)
+                {
+                    gotdata = true;
+                    termData td = values[samples[index]];
+                    line+= td.data();
+                }
+                else
+                { line += "\t-\t-\t-\t-"; }
+            }
+
+            if (gotdata == false) { line = ""; }
+            return line;
         }
 
         public bool HasDataInTree

@@ -1884,5 +1884,40 @@ namespace GOTermViewer
             SetScrollbarValuse();
             
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            string saveToo = FileAccessClass.FileString(FileAccessClass.FileJob.SaveAs, "Save data as", "tab-delimited file (*.xls)|*.xls");
+            if (saveToo.Equals("Cancel") == true) { return; }
+            int realTop = topOffP1Image;
+            try
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (string name in samples)
+                { sb.Append("\t" + name + "\t\t\t"); }
+                sb.Append("\r\n");
+                foreach (string name in samples)
+                { sb.Append("\tOdds ratio\tp value\tObserved\tExpected"); }
+                                          
+                System.IO.StreamWriter fw = null;
+                try
+                {
+                    foreach(term t in biological_process.Values)
+                    {
+                        string line = t.GetDat(samples);
+                        if (string.IsNullOrEmpty(line) == false)
+                        { sb.Append(t.Name + line + "\r\n"); }
+                    }
+
+                    fw = new System.IO.StreamWriter(saveToo);
+                    fw.WriteLine(sb.ToString());
+                }
+                catch (Exception ex) { }
+                finally { fw?.Close(); }
+
+            }
+            finally
+            { topOffP1Image = realTop; }
+        }
     }
 }

@@ -89,6 +89,7 @@ namespace GOTermViewer
             this.nupSaveWidth = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupLabelWidth)).BeginInit();
             this.gbTreeview.SuspendLayout();
@@ -103,7 +104,7 @@ namespace GOTermViewer
             // btnGOTerms
             // 
             this.btnGOTerms.Location = new System.Drawing.Point(203, 11);
-            this.btnGOTerms.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGOTerms.Margin = new System.Windows.Forms.Padding(2);
             this.btnGOTerms.Name = "btnGOTerms";
             this.btnGOTerms.Size = new System.Drawing.Size(75, 23);
             this.btnGOTerms.TabIndex = 3;
@@ -147,50 +148,50 @@ namespace GOTermViewer
             this.toolStripMenuItem2,
             this.hideunhideTermsDataToolStripMenuItem});
             this.cmFind.Name = "cmFind";
-            this.cmFind.Size = new System.Drawing.Size(203, 126);
+            this.cmFind.Size = new System.Drawing.Size(204, 126);
             // 
             // findGOTermToolStripMenuItem
             // 
             this.findGOTermToolStripMenuItem.Name = "findGOTermToolStripMenuItem";
-            this.findGOTermToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.findGOTermToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.findGOTermToolStripMenuItem.Text = "Find GO term";
             this.findGOTermToolStripMenuItem.Click += new System.EventHandler(this.findGOTermToolStripMenuItem_Click);
             // 
             // findCommonPathToolStripMenuItem
             // 
             this.findCommonPathToolStripMenuItem.Name = "findCommonPathToolStripMenuItem";
-            this.findCommonPathToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.findCommonPathToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.findCommonPathToolStripMenuItem.Text = "Find common path";
             this.findCommonPathToolStripMenuItem.Click += new System.EventHandler(this.findCommonPathToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(199, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(200, 6);
             // 
             // moveTermUpToolStripMenuItem
             // 
             this.moveTermUpToolStripMenuItem.Name = "moveTermUpToolStripMenuItem";
-            this.moveTermUpToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.moveTermUpToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.moveTermUpToolStripMenuItem.Text = "Move term up";
             this.moveTermUpToolStripMenuItem.Click += new System.EventHandler(this.moveTermUpToolStripMenuItem_Click);
             // 
             // moveTermDownToolStripMenuItem
             // 
             this.moveTermDownToolStripMenuItem.Name = "moveTermDownToolStripMenuItem";
-            this.moveTermDownToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.moveTermDownToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.moveTermDownToolStripMenuItem.Text = "Move term down";
             this.moveTermDownToolStripMenuItem.Click += new System.EventHandler(this.moveTermDownToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(199, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(200, 6);
             // 
             // hideunhideTermsDataToolStripMenuItem
             // 
             this.hideunhideTermsDataToolStripMenuItem.Name = "hideunhideTermsDataToolStripMenuItem";
-            this.hideunhideTermsDataToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.hideunhideTermsDataToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.hideunhideTermsDataToolStripMenuItem.Text = "Hide/Unhide Terms data";
             this.hideunhideTermsDataToolStripMenuItem.Click += new System.EventHandler(this.hideUnhideTermsDataToolStripMenuItem_Click);
             // 
@@ -208,7 +209,7 @@ namespace GOTermViewer
             // 
             this.btnDataFolder.Enabled = false;
             this.btnDataFolder.Location = new System.Drawing.Point(203, 38);
-            this.btnDataFolder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDataFolder.Margin = new System.Windows.Forms.Padding(2);
             this.btnDataFolder.Name = "btnDataFolder";
             this.btnDataFolder.Size = new System.Drawing.Size(75, 23);
             this.btnDataFolder.TabIndex = 5;
@@ -222,7 +223,7 @@ namespace GOTermViewer
             this.chkLimit.Checked = true;
             this.chkLimit.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkLimit.Location = new System.Drawing.Point(8, 83);
-            this.chkLimit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkLimit.Margin = new System.Windows.Forms.Padding(2);
             this.chkLimit.Name = "chkLimit";
             this.chkLimit.Size = new System.Drawing.Size(270, 18);
             this.chkLimit.TabIndex = 15;
@@ -272,7 +273,7 @@ namespace GOTermViewer
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(203, 15);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 42;
@@ -298,7 +299,7 @@ namespace GOTermViewer
             0,
             0});
             this.nupLabelWidth.Location = new System.Drawing.Point(206, 148);
-            this.nupLabelWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nupLabelWidth.Margin = new System.Windows.Forms.Padding(2);
             this.nupLabelWidth.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -466,7 +467,7 @@ namespace GOTermViewer
             this.chkDEG.Checked = true;
             this.chkDEG.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkDEG.Location = new System.Drawing.Point(7, 127);
-            this.chkDEG.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkDEG.Margin = new System.Windows.Forms.Padding(2);
             this.chkDEG.Name = "chkDEG";
             this.chkDEG.Size = new System.Drawing.Size(161, 17);
             this.chkDEG.TabIndex = 25;
@@ -488,7 +489,7 @@ namespace GOTermViewer
             this.chkOdds.AutoSize = true;
             this.chkOdds.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkOdds.Location = new System.Drawing.Point(204, 127);
-            this.chkOdds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkOdds.Margin = new System.Windows.Forms.Padding(2);
             this.chkOdds.Name = "chkOdds";
             this.chkOdds.Size = new System.Drawing.Size(74, 17);
             this.chkOdds.TabIndex = 26;
@@ -515,7 +516,7 @@ namespace GOTermViewer
             this.chkNames.Checked = true;
             this.chkNames.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNames.Location = new System.Drawing.Point(8, 39);
-            this.chkNames.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkNames.Margin = new System.Windows.Forms.Padding(2);
             this.chkNames.Name = "chkNames";
             this.chkNames.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.chkNames.Size = new System.Drawing.Size(270, 17);
@@ -528,7 +529,7 @@ namespace GOTermViewer
             // 
             this.chkJustLabelsWithData.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.chkJustLabelsWithData.Location = new System.Drawing.Point(8, 60);
-            this.chkJustLabelsWithData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkJustLabelsWithData.Margin = new System.Windows.Forms.Padding(2);
             this.chkJustLabelsWithData.Name = "chkJustLabelsWithData";
             this.chkJustLabelsWithData.Size = new System.Drawing.Size(270, 17);
             this.chkJustLabelsWithData.TabIndex = 20;
@@ -542,7 +543,7 @@ namespace GOTermViewer
             this.chkEndent.Checked = true;
             this.chkEndent.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEndent.Location = new System.Drawing.Point(8, 18);
-            this.chkEndent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkEndent.Margin = new System.Windows.Forms.Padding(2);
             this.chkEndent.Name = "chkEndent";
             this.chkEndent.Size = new System.Drawing.Size(270, 17);
             this.chkEndent.TabIndex = 18;
@@ -768,11 +769,22 @@ namespace GOTermViewer
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filter data";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(230, 722);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 757);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -782,7 +794,7 @@ namespace GOTermViewer
             this.Controls.Add(this.gbTreeview);
             this.Controls.Add(this.gbOptions);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(800, 796);
             this.Name = "Form1";
             this.Text = "GO Term Viewer";
@@ -865,5 +877,6 @@ namespace GOTermViewer
         private System.Windows.Forms.ToolStripMenuItem moveTermDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem hideunhideTermsDataToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

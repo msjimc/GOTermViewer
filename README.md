@@ -36,5 +36,7 @@ While GOTermVeiwer is targeted to run on Windows computers it is possible to run
 
 ## Citation
 
-> [Volpato M, Hull M, Carr IM. GOTermViewer: Visualization of Gene Ontology Enrichment in Multiple Differential Gene Expression Analyses. Bioinform Biol Insights. 2024 Sep 18;18](https://pmc.ncbi.nlm.nih.gov/articles/PMC11418229/)
+> Volpato M, Hull M, Carr IM.  
+[GOTermViewer: Visualization of Gene Ontology Enrichment in Multiple Differential Gene Expression Analyses.](https://pmc.ncbi.nlm.nih.gov/articles/PMC11418229/)  
+Bioinform Biol Insights. 2024 Sep 18;18
 

@@ -28,7 +28,9 @@
     + [Filtering the data based on its p value](#filtering-the-data-based-on-its-p-value) 
       - [Change the p value cutoff](#change-the-p-value-cutoff)
       - [Filter terms by p value of specified files](#filter-terms-by-p-value-of-specified-files)
-  * [Saving the analysis to an image file](#saving-the-analysis-to-an-image-file)
+  * [Saving the analysis](#saving-the-analysis)
+    + [Numeric data](#numeric-data)
+    + [Displayed image](#displayed-image)
   * [Exporting and importing selected GO terms]
   * [Running GOTermViewer on macOS and Linux](#running-gotermviewer-on-macos-and-linux)
   (#exporting-and-importing-selected-go-terms)
@@ -443,7 +445,7 @@ The numeric data will be saved to tab-delimited text file with the *.xls file ex
 
 If data is missing for a GO term in a data file the values are set to "-".
 
-### Image
+### Displayed image
 This will save the image in the display window except that the width of each of the rectangles is set via the ‘Graph width’ option of the ‘save image’ panel, rather than as a function of the display panel width. Typically, the value of this option matches the width of the rectangles in the display unless it is less than 50 or greater than 1000. To modify this value simply select the current value and then type the new value. If size of the 'Gene Ontology phrase data' window is changed or the 'Change width of label area' value is modified, changes to the ‘Graph width’ option will be overwritten. 
 
 ![figure 29](images/fig22.png?raw=true "Figure 29")

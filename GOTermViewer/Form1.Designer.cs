@@ -132,6 +132,7 @@ namespace GOTermViewer
             this.tv.ShowNodeToolTips = true;
             this.tv.Size = new System.Drawing.Size(451, 685);
             this.tv.TabIndex = 46;
+            this.tv.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.tv_BeforeCheck);
             this.tv.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.Tv_AfterCheck);
             this.tv.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.Tv_BeforeExpand);
             this.tv.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tv_MouseUp);

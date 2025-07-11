@@ -607,6 +607,16 @@ namespace GOTermViewer
             }
         }
 
+        private void tv_BeforeCheck(object sender, TreeViewCancelEventArgs e)
+        {
+            string key = (string)e.Node.Tag;
+            if (string.IsNullOrEmpty(key) == false && selectedData.ContainsKey(key) == false)
+            {
+                e.Cancel = true;
+                MessageBox.Show("Only select terms from the domain selected in the \r\n\"Data tree view options\" panel.", "Domians selection mismatch");
+                
+            }
+        }
         private void Tv_AfterCheck(object sender, TreeViewEventArgs e)
         {
             if (e.Node.Tag == null) { return; }
@@ -614,7 +624,7 @@ namespace GOTermViewer
             if (string.IsNullOrEmpty(key) == true) { return; }
 
             if (e.Node.ImageIndex == 0)
-            { return; }
+            { return; }                                  
 
             if (molecular_function.ContainsKey(key) == true)
             {
@@ -685,7 +695,12 @@ namespace GOTermViewer
                         if (child.Checked == true)
                         {
                             string key = (string)child.Tag;
-                            selectedData[key].WasNodeSelected = true;
+                            if (selectedData.ContainsKey(key) == true)
+                            { selectedData[key].WasNodeSelected = true; }
+                            else
+                            {
+                                MessageBox.Show("Only one data type can be displayed. Just select terms belongining to one these Molecular Function, Biological Process or Cellular Component sets.","Multiple domians selected");
+                            }
                         }
                     }
                 }
@@ -1551,6 +1566,7 @@ namespace GOTermViewer
             selectedData = biological_process;
             //root_selectedData = root_biological_process;
             tn_selectedNode = tn_biological_process;
+            DrawImage();
         }
 
         private void rdoMF_CheckedChanged(object sender, EventArgs e)
@@ -1558,6 +1574,7 @@ namespace GOTermViewer
             selectedData = molecular_function;
             //root_selectedData = root_molecular_function;
             tn_selectedNode = tn_molecular_function;
+            DrawImage();
         }
 
         private void rdoCC_CheckedChanged(object sender, EventArgs e)
@@ -1565,6 +1582,7 @@ namespace GOTermViewer
             selectedData = cellular_component;
             //root_selectedData = root_cellular_component;
             tn_selectedNode = tn_cellular_component;
+            DrawImage();
         }
 
         private void chkEndent_CheckedChanged(object sender, EventArgs e)

@@ -55,37 +55,73 @@ namespace GOTermViewer
             iv = new ImageViewer(this);
         }
 
+        private bool ignoreReDraw = false;
         private void CleanUP()
         {
-            rdoBP.Enabled = false;
-            rdoCC.Enabled = false;
-            rdoMF.Enabled = false;
-            rdoBP.Checked = false;
-            rdoCC.Checked = false;
-            rdoMF.Checked = false;
+            try
+            {
+                ignoreReDraw = true;
 
-            cellular_component = null;
-            root_cellular_component = null;
-            molecular_function = null;
-            root_molecular_function = null;
-            biological_process = null;
-            root_biological_process = null;
-            selectedData = null;
-            tn_selectedNode = null;
+                rdoBP.Enabled = false;
+                rdoCC.Enabled = false;
+                rdoMF.Enabled = false;
+                rdoBP.Checked = false;
+                rdoCC.Checked = false;
+                rdoMF.Checked = false;
 
-            gbDisplayOption.Enabled = false;
-            gbTreeViewOptions.Enabled = false;
-            btnDataFolder.Enabled = false;
-            btnImportGOList.Enabled = false;
-            btnExportSelectedGOTerms.Enabled = false;
-            groupBox1.Enabled = false;
-            groupBox3.Enabled = false;
+                cellular_component = null;
+                root_cellular_component = null;
+                molecular_function = null;
+                root_molecular_function = null;
+                biological_process = null;
+                root_biological_process = null;
+                selectedData = null;
+                tn_selectedNode = null;
+
+                gbDisplayOption.Enabled = false;
+                gbTreeViewOptions.Enabled = false;
+                btnDataFolder.Enabled = false;
+                btnImportGOList.Enabled = false;
+                btnExportSelectedGOTerms.Enabled = false;
+                groupBox1.Enabled = false;
+                groupBox3.Enabled = false;
+
+                terms = new List<term>();
+                molecular_function = null;
+                biological_process = null;
+                cellular_component = null;
+                selectedData = null;
+                root_molecular_function = null;
+                root_cellular_component = null;
+                tn_molecular_function = null;
+                tn_biological_process = null;
+                tn_cellular_component = null;
+                tn_selectedNode = null;
+                limitNodes = false;
+                cutOff = 0.05;
+                titleText = "";
+
+                //drawing variables                
+                numberOfSamples = 0;
+                samples?.Clear();
+                samplesOriginal?.Clear();
+                labelWidth = 500;
+                topOffP1Image = 0;
+                tvCheckedTimer = false;
+                drawFilteredData = false;
+                lines = null;
+                justValues = false;
+                scrolling = false;
+            }
+            finally
+            { ignoreReDraw = false; }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string GO_oboFile = FileAccessClass.FileString(FileAccessClass.FileJob.Open, "Select the GO term file", "GO term text file (*.obo)|*.obo");
             if (System.IO.File.Exists(GO_oboFile) == false) { return; }
+                       
 
             titleText = Text;
             Text = "Loading phrases";
@@ -759,6 +795,7 @@ namespace GOTermViewer
             lines = new List<Point[]>();
 
             numberOfSamples = samples.Count;
+            if (numberOfSamples == 0) { numberOfSamples = 1; }
             regions = new Rectangle[numberOfSamples];
             int gaps = (numberOfSamples) * 10;
             int width = (dimensions.Width - labelWidth - gaps) / numberOfSamples;
@@ -1193,7 +1230,7 @@ namespace GOTermViewer
         private int getHeigth(TreeNode thisNode, int y, int level, Font font, bool drawFilteredData, bool endent, bool dontDrawAll)
         {
             if (endent == false) { level = 0; }
-
+            if (thisNode == null) { return y; }
             if (thisNode.Checked == true)
             {
                 string star = "";
@@ -1332,6 +1369,7 @@ namespace GOTermViewer
 
         private void StartDrawTimer()
         {
+            if (ignoreReDraw == true) { return; }
             tvCheckedTimer = true;
             tTVclick.Enabled = true;
         }
@@ -1902,40 +1940,6 @@ namespace GOTermViewer
             SetScrollbarValuse();
             
         }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            string saveToo = FileAccessClass.FileString(FileAccessClass.FileJob.SaveAs, "Save data as", "tab-delimited file (*.xls)|*.xls");
-            if (saveToo.Equals("Cancel") == true) { return; }
-            int realTop = topOffP1Image;
-            try
-            {
-                StringBuilder sb = new StringBuilder();
-                foreach (string name in samples)
-                { sb.Append("\t" + name + "\t\t\t"); }
-                sb.Append("\r\n");
-                foreach (string name in samples)
-                { sb.Append("\tOdds ratio\tp value\tObserved\tExpected"); }
-                                          
-                System.IO.StreamWriter fw = null;
-                try
-                {
-                    foreach(term t in biological_process.Values)
-                    {
-                        string line = t.GetDat(samples);
-                        if (string.IsNullOrEmpty(line) == false)
-                        { sb.Append(t.Name + line + "\r\n"); }
-                    }
-
-                    fw = new System.IO.StreamWriter(saveToo);
-                    fw.WriteLine(sb.ToString());
-                }
-                catch (Exception ex) { }
-                finally { fw?.Close(); }
-
-            }
-            finally
-            { topOffP1Image = realTop; }
-        }
+       
     }
 }

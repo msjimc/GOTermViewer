@@ -89,7 +89,6 @@ namespace GOTermViewer
             this.nupSaveWidth = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.cmFind.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nupLabelWidth)).BeginInit();
             this.gbTreeview.SuspendLayout();
@@ -770,22 +769,11 @@ namespace GOTermViewer
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filter data";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(230, 722);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 757);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -878,6 +866,5 @@ namespace GOTermViewer
         private System.Windows.Forms.ToolStripMenuItem moveTermDownToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem hideunhideTermsDataToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
     }
 }
